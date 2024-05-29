@@ -2,6 +2,7 @@
 using SistemaFinanceiro.Model;
 
 
+
 try
 {
     Agencia ag1 = new Agencia(888, "Itau", "1111-1111");
@@ -19,7 +20,16 @@ try
     Console.WriteLine("Saldo da conta1 {0:C2}, saldo da conta2 {1:C2}", conta1.Saldo, conta2.Saldo);
     Console.WriteLine("A conta {0} tem o maior saldo que é {1:C2}", contaComMaiorSaldo.Numero, contaComMaiorSaldo.Saldo);
     Console.WriteLine("O saldo inicial total geral é: {0:C2}", saldoTotalGeral);
-}catch(Exception ex)
+} 
+catch (ArgumentException ex)
 {
     Console.WriteLine($"Error: {ex.Message}");
+} 
+catch(InvalidOperationException ex)
+{
+    Console.WriteLine($"Error: { ex.Message}");
 }
+
+
+
+
