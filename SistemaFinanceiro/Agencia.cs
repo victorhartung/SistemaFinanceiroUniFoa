@@ -10,6 +10,7 @@ namespace SistemaFinanceiro
     {
         private int _numero;
         private string _nome, _telefone;
+        public Banco Banco {  get; set; }
 
         public Agencia(int numero) 
         {
@@ -18,14 +19,15 @@ namespace SistemaFinanceiro
         
         }
 
-        public Agencia(int numero, string nome, string telefone)
+        public Agencia(int numero, string nome, string telefone, Banco banco)
         {
             _numero = numero;
             _nome = nome;
             _telefone = telefone;
+            Banco = banco ?? throw new ArgumentNullException(nameof(banco), "A agencia deve pertencer a um banco");
+
            
         }
-
 
         public int Numero { get => _numero; }
 

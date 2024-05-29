@@ -34,8 +34,8 @@ namespace SistemaFinanceiro.Model
 
             _numero = numero;
             _saldo = saldo;
-            agencia = ag;
-            this.titular = titular;
+            agencia = ag ?? throw new ArgumentNullException(nameof(ag), "A conta deve ter uma agencia");
+            this.titular = titular ?? throw new ArgumentNullException(nameof(titular), "A conta deve ter um cliente");
         }
 
         public long Numero
